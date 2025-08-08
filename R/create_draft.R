@@ -75,7 +75,7 @@ create_draft <- function(ol_app,
    if (!is.null(subject)) { ol_mail[["Subject"]] <- subject }
 
    if (!is.null(body_html)) {
-      ol_mail[["HTMLBody"]] <- body_plain
+      ol_mail[["HTMLBody"]] <- body_html
 
       if (!is.null(body_plain)) {
          message('Supplied HTML body, discarding supplied plain text body.')
