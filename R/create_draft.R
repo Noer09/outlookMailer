@@ -11,6 +11,7 @@
 #' @param addr_from optional fields to fill
 #' @param addr_to optional fields to fill
 #' @param addr_cc optional fields to fill
+#' @param addr_reply optional fields to fill
 #' @param subject optional fields to fill
 #' @param html_body HTML contents of the message. Takes precedence over body
 #' @param body plain text contents of the message
@@ -38,6 +39,7 @@ create_draft <- function(ol_app,
                          addr_from = NULL,
                          addr_to = NULL,
                          addr_cc = NULL,
+                         addr_reply = NULL,
                          subject = NULL,
                          body_html = NULL,
                          body_plain = NULL,
@@ -72,6 +74,7 @@ create_draft <- function(ol_app,
    if (!is.null(addr_from)) { ol_mail[["Sender"]]<- addr_from }
    if (!is.null(addr_to)) { ol_mail[["To"]]<- addr_to }
    if (!is.null(addr_cc)) { ol_mail[["CC"]] <- addr_cc }
+   if (!is.null(addr_reply)) { ol_mail[["ReplyRecipients"]]$Add(addr_reply) }
    if (!is.null(subject)) { ol_mail[["Subject"]] <- subject }
 
    if (!is.null(body_html)) {
